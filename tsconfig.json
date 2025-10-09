@@ -12,6 +12,9 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "paths": {
+      "@/*": ["src/renderer/src/*"],
+      "@main/*": ["src/main/*"],
+      "@preload/*": ["src/preload/*"],
       "*": ["node_modules/*"]
     },
     "jsx": "react-jsx"
