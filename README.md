@@ -22,6 +22,15 @@
 │   └── renderer/
 │       ├── index.html        # 渲染进程 HTML
 │       └── src/              # 渲染进程相关源码
+│           └── constants/    # 常量
+│           └── components/   # 通用组件
+│           └── pages/        # 页面组件
+│           └── hooks/        # hooks
+│           └── services/     # 接口服务
+│           └── store/        # 状态管理
+│           └── utils/        # 工具函数
+│           └── types/        # 通用类型
+│           └── styles/       # 通用样式
 ```
 
 ## 安装依赖
@@ -55,6 +64,7 @@ npm run make
 ```
 
 ## 主要依赖
+
 - electron
 - react
 - typescript
@@ -64,9 +74,10 @@ npm run make
 
 ## 环境区分
 
-
 ## 贡献者
+
 - snowden.xu <snowden.xu@gmail.com>
 
 ## License
+
 MIT
