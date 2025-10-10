@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
-import { Form, Input, Typography, Checkbox, Space, Card, Button } from 'antd';
-import {
-  UserOutlined,
-  LockOutlined,
-  EyeInvisibleOutlined,
-  EyeTwoTone,
-} from '@ant-design/icons';
+import { Form, Input, Checkbox, Space, Card, Button } from 'antd';
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import Logo from '../../components/Logo';
-
-const { Text } = Typography;
+import loginBg from '../../../assets/images/login-bg.png';
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
@@ -23,82 +17,71 @@ export default function Login() {
   };
 
   return (
-    <div className="login-container">
-      <div className="w-full max-w-[420px]">
-        {/* 品牌标识 */}
-        <div className="text-center mb-xxl">
-          <div className="mb-lg flex justify-center">
-            <div className="w-[60px] h-[60px] rounded-medium flex items-center justify-center mx-auto transition-all duration-base overflow-hidden">
-              <Logo size={60} />
-            </div>
+    <div
+      className="w-full h-screen bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url(${loginBg})`,
+      }}
+    >
+      <main className="flex flex-col items-center justify-center h-full">
+        <div className="w-[552px] px-14 py-12">
+          <div className="flex items-center flex-col">
+            <Logo size={60} />
+            <div className="text-2xl py-6 font-bold">欢迎使用 snowden Disk</div>
           </div>
-          <Typography.Title
-            level={2}
-            className="!m-0 text-2xl font-medium text-white"
-          >
-            欢迎使用 snowden Disk
-          </Typography.Title>
-        </div>
-
-        {/* 登录表单 */}
-        <Card className="glass-card p-xxl">
-          <Form
-            name="login"
-            onFinish={onFinish}
-            autoComplete="off"
-            layout="vertical"
-          >
-            <Form.Item
-              label="用户名"
-              name="username"
-              rules={[{ required: true, message: '请输入用户名' }]}
+          <Card>
+            <Form
+              name="login"
+              onFinish={onFinish}
+              autoComplete="off"
+              layout="vertical"
             >
-              <Input placeholder="请输入用户名" />
-            </Form.Item>
-
-            <Form.Item
-              label="密码"
-              name="password"
-              rules={[{ required: true, message: '请输入密码' }]}
-            >
-              <Input.Password
-                placeholder="请输入密码"
-                iconRender={visible =>
-                  visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-                }
-              />
-            </Form.Item>
-
-            <Form.Item>
-              <Space style={{ width: '100%', justifyContent: 'space-between' }}>
-                <Form.Item name="remember" valuePropName="checked" noStyle>
-                  <Checkbox>自动登录</Checkbox>
-                </Form.Item>
-                <a href="#">忘记密码？</a>
-              </Space>
-            </Form.Item>
-
-            <Form.Item>
-              <Button
-                type="primary"
-                htmlType="submit"
-                loading={loading}
-                block
-                className="primary-button"
+              <Form.Item
+                label="用户名"
+                name="username"
+                rules={[{ required: true, message: '请输入用户名' }]}
               >
-                登录
-              </Button>
-            </Form.Item>
-          </Form>
-        </Card>
+                <Input placeholder="请输入用户名" />
+              </Form.Item>
 
-        {/* 版权信息 */}
-        <div className="text-center mt-xl">
-          <Text type="secondary" className="text-sm text-gray-500">
-            © Powered by snowden.xu
-          </Text>
+              <Form.Item
+                label="密码"
+                name="password"
+                rules={[{ required: true, message: '请输入密码' }]}
+              >
+                <Input.Password
+                  placeholder="请输入密码"
+                  iconRender={visible =>
+                    visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                  }
+                />
+              </Form.Item>
+
+              <Form.Item>
+                <Space>
+                  <Form.Item name="remember" valuePropName="checked" noStyle>
+                    <Checkbox>自动登录</Checkbox>
+                  </Form.Item>
+                  <a href="#">忘记密码？</a>
+                </Space>
+              </Form.Item>
+
+              <Form.Item>
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  loading={loading}
+                  block
+                  size="large"
+                >
+                  登录
+                </Button>
+              </Form.Item>
+            </Form>
+          </Card>
         </div>
-      </div>
+        <div className="mt-4 text-zinc-400">&copy; Powered by snowden.xu</div>
+      </main>
     </div>
   );
 }

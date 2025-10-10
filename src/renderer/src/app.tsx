@@ -1,13 +1,13 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { StyleProvider } from '@ant-design/cssinjs';
+import { ConfigProvider } from 'antd';
 import { AppRouter } from '@/router';
-import 'antd/dist/reset.css';
 import './styles/globals.css';
+import { theme } from './styles/theme';
 
 const root = createRoot(document.body);
 root.render(
-  <StyleProvider layer>
+  <ConfigProvider theme={theme}>
     <AppRouter />
-  </StyleProvider>
+  </ConfigProvider>
 );
